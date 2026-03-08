@@ -1,4 +1,3 @@
-<!-- 修改 App.vue 文件 -->
 <template>
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -8,7 +7,6 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
 
-    <!-- 添加购物车组件 -->
     <SimpleCart />
   </div>
 </template>

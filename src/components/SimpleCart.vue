@@ -1,13 +1,10 @@
-<!-- src/components/SimpleCart.vue -->
 <template>
   <div class="cart-container">
-    <!-- 页面标题 -->
     <div class="cart-header">
       <h1>购物车</h1>
       <p>共 {{ cartItems.length }} 件商品</p>
     </div>
 
-    <!-- 商品列表 -->
     <div class="cart-items">
       <div v-for="(item, index) in cartItems" :key="index" class="cart-item">
         <div class="item-checkbox">
@@ -38,7 +35,6 @@
       </div>
     </div>
 
-    <!-- 结算区域 -->
     <div class="checkout-area">
       <div class="total-info">
         <p>合计：¥{{ totalAmount }}</p>
@@ -52,7 +48,6 @@
 <script setup>
 import { ref, computed } from 'vue'
 
-// 购物车商品数据
 const cartItems = ref([
   {
     id: 1,
@@ -74,7 +69,6 @@ const cartItems = ref([
   }
 ])
 
-// 计算总价
 const totalAmount = computed(() => {
   return cartItems.value.reduce((total, item) => {
     if (item.selected) {
@@ -84,24 +78,20 @@ const totalAmount = computed(() => {
   }, 0)
 })
 
-// 增加数量
 const increaseQuantity = (index) => {
   cartItems.value[index].quantity++
 }
 
-// 减少数量
 const decreaseQuantity = (index) => {
   if (cartItems.value[index].quantity > 1) {
     cartItems.value[index].quantity--
   }
 }
 
-// 删除商品
 const removeItem = (index) => {
   cartItems.value.splice(index, 1)
 }
 
-// 结算
 const checkout = () => {
   const selectedItems = cartItems.value.filter(item => item.selected)
   if (selectedItems.length === 0) {
