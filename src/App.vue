@@ -1,7 +1,4 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
+<!-- 修改 App.vue 文件 -->
 <template>
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -10,9 +7,16 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+
+    <!-- 添加购物车组件 -->
+    <SimpleCart />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
+
+<script setup>
+import HelloWorld from './components/SimpleCart.vue'
+import SimpleCart from './components/SimpleCart.vue'
+</script>
 
 <style scoped>
 .logo {
@@ -21,9 +25,11 @@ import HelloWorld from './components/HelloWorld.vue'
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
